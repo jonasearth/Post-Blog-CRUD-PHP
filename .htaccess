@@ -1,0 +1,8 @@
+RewriteEngine on
+IndexIgnore /assets/*
+RewriteRule ^assets - [L,NC]
+RewriteRule ^assets/(.*)/?$ ./assets/$1 [L,QSA]
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-l
+RewriteRule ^(.*)$ index.php/$1
